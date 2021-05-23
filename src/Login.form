@@ -51,7 +51,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="login" min="-2" pref="75" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="signup" min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="signupbutton" min="-2" pref="75" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="exit" min="-2" pref="75" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
@@ -81,7 +81,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="login" alignment="0" pref="52" max="32767" attributes="0"/>
                   <Component id="exit" max="32767" attributes="0"/>
-                  <Component id="signup" max="32767" attributes="0"/>
+                  <Component id="signupbutton" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
           </Group>
@@ -110,10 +110,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginActionPerformed"/>
       </Events>
     </Component>
-    <Component class="java.awt.Button" name="signup">
+    <Component class="java.awt.Button" name="signupbutton">
       <Properties>
         <Property name="label" type="java.lang.String" value="Sign Up"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signupbuttonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="exit">
       <Properties>

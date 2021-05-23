@@ -35,7 +35,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         login = new java.awt.Button();
-        signup = new java.awt.Button();
+        signupbutton = new java.awt.Button();
         exit = new java.awt.Button();
         username = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
@@ -55,7 +55,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        signup.setLabel("Sign Up");
+        signupbutton.setLabel("Sign Up");
+        signupbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signupbuttonActionPerformed(evt);
+            }
+        });
 
         exit.setLabel("Exit");
         exit.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +107,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(signupbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(63, 63, 63))))
@@ -126,7 +131,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(login, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                     .addComponent(exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(signup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(signupbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
         );
 
@@ -165,6 +170,12 @@ public class Login extends javax.swing.JFrame {
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitActionPerformed
+
+    private void signupbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupbuttonActionPerformed
+        signup signup = new signup();
+               signup.setVisible(true);
+               this.dispose();
+    }//GEN-LAST:event_signupbuttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,7 +221,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private java.awt.Button login;
     private javax.swing.JPasswordField password;
-    private java.awt.Button signup;
+    private java.awt.Button signupbutton;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
