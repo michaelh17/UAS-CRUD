@@ -19,10 +19,10 @@ public class Login extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             cons = DriverManager.getConnection("jdbc:mysql://localhost:3306/laundry","root",""); //connection
             stat = cons.createStatement();
-            JOptionPane.showMessageDialog(null, "Connected To Database!!");
+        
         }
         catch (Exception E) {
-             JOptionPane.showMessageDialog(null, "Disconnected From Database!!");
+           
             
         }
     }
