@@ -158,7 +158,7 @@ public class Login extends javax.swing.JFrame {
            }
        }
        catch (Exception E){
-           JOptionPane.showMessageDialog(null, "Mohon Maaf , Username / Password Salah! ");
+           JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
            
        }
     }//GEN-LAST:event_loginActionPerformed

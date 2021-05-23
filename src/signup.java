@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -141,7 +142,26 @@ public class signup extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       String db = "insert into login values (?,?,?)";
+        try{
+             PreparedStatement statement = cons.prepareStatement(db);
+             statement.setString(1,ID.getText());
+             statement.setString(2,username.getText());
+             statement.setString(3,String.valueOf(password.getPassword()));
+          
+             
+             statement.executeUpdate();
+              JOptionPane.showMessageDialog(null,"Sign Up Complete!You Will Be Directed Back To The Login Form!");
+              Login Login = new Login();
+              Login.setVisible(true);
+               this.dispose();
+           }
+        
+           catch (Exception E){
+           JOptionPane.showMessageDialog(null, "Register Gagal!");
+           }
+      
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
