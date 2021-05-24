@@ -182,8 +182,6 @@ public class signup extends javax.swing.JFrame {
         }
 
        
-       
-        
         String db = "insert into login values (?,?,?)";
         try{
             if (value>0){
