@@ -1,12 +1,13 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+
+//import javax.swing.table.DefaultTableModel;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
+//import java.sql.SQLException;
 
 public class Login extends javax.swing.JFrame {
     
@@ -22,8 +23,9 @@ public class Login extends javax.swing.JFrame {
         
         }
         catch (Exception E) {
-           
             
+           JOptionPane.showMessageDialog(null,"Program Can't Connect To Database!");
+           System.exit(0);
         }
     }
 
@@ -43,6 +45,8 @@ public class Login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 204, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setText("Username : ");
 
