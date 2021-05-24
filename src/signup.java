@@ -21,7 +21,7 @@ public class signup extends javax.swing.JFrame {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            cons = DriverManager.getConnection("jdbc:mysql://localhost:3306/laundry","root",""); //connection
+            cons = DriverManager.getConnection("jdbc:mysql://localhost:3306/crud","root",""); //connection
             stat = cons.createStatement();
         
         }

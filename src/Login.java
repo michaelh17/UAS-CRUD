@@ -10,14 +10,14 @@ import javax.swing.table.DefaultTableModel;
 
 public class Login extends javax.swing.JFrame {
     
-    public laundry laundry;
+    public home home;
     public Connection cons;
     public Statement stat;
     public Login() {
         initComponents();
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            cons = DriverManager.getConnection("jdbc:mysql://localhost:3306/laundry","root",""); //connection
+            cons = DriverManager.getConnection("jdbc:mysql://localhost:3306/crud","root",""); //connection
             stat = cons.createStatement();
         
         }
@@ -148,8 +148,8 @@ public class Login extends javax.swing.JFrame {
            
            if (result.next()){
                JOptionPane.showMessageDialog(null , "Login Berhasil!");
-               laundry = new laundry();
-               laundry.setVisible(true);
+               home = new home();
+               home.setVisible(true);
                this.dispose();
            }
            
