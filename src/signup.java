@@ -15,7 +15,7 @@ public class signup extends javax.swing.JFrame {
      public Login login;
      public Connection cons;
      public Statement stat;
-    
+     
     public signup() {
         initComponents();
         
@@ -155,8 +155,8 @@ public class signup extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int value;
         String pass  = String.valueOf(password.getPassword());
-      
-      
+        
+        
         if(ID.getText().trim().isEmpty() && username.getText().trim().isEmpty() && pass.trim().isEmpty()){
             warning.setText("Kolom Tidak Boleh Kosong!");
             value = -1;
