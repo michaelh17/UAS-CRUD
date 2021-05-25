@@ -78,6 +78,7 @@ public class signup extends javax.swing.JFrame {
         });
 
         warning.setForeground(new java.awt.Color(255, 0, 51));
+        warning.setText("e");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,17 +164,17 @@ public class signup extends javax.swing.JFrame {
         }
         
         else if(ID.getText().trim().isEmpty()){
-            warning.setText("ID Tidak Boleh Koosng!");
+            warning.setText("ID Tidak Boleh Kosong!");
             value = -1;
         }
         
         else if(username.getText().trim().isEmpty()){
-            warning.setText("Username Tidak Boleh Koosng!");
+            warning.setText("Username Tidak Boleh Kosong!");
             value = -1;
         }
         
         else if(pass.trim().isEmpty()){
-            warning.setText("Password Tidak Boleh Koosng!");
+            warning.setText("Password Tidak Boleh Kosong!");
             value = -1;
         }
         
