@@ -78,7 +78,6 @@ public class signup extends javax.swing.JFrame {
         });
 
         warning.setForeground(new java.awt.Color(255, 0, 51));
-        warning.setText("e");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
