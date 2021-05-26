@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 public class home extends javax.swing.JFrame {
 
     Login welcome = new Login();
-    
+    public reservation reservation;
     public home(String value) {
         initComponents();
         welcomemsg.setText("Welcome , " +value + "!");
@@ -91,6 +91,11 @@ public class home extends javax.swing.JFrame {
         });
 
         jButton5.setText("Reservation");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("jButton1");
 
@@ -161,6 +166,12 @@ public class home extends javax.swing.JFrame {
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        reservation = new reservation();
+        reservation.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
