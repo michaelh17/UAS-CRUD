@@ -186,7 +186,7 @@ public class Login extends javax.swing.JFrame {
            if (result.next()){
                JOptionPane.showMessageDialog(null , "Login Berhasil!");
                home = new home();
-               home.setVisible(true);
+               home.setVisible(false);
                new home(nama).setVisible(true);
                this.dispose();
            }
