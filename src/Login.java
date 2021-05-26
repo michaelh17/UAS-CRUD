@@ -30,7 +30,7 @@ public class Login extends javax.swing.JFrame {
         }
     }
     
-    
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -154,6 +154,7 @@ public class Login extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         int value;
+        String nama = username.getText();
         String pass  = String.valueOf(password.getPassword());
         
         if(username.getText().trim().isEmpty() && pass.trim().isEmpty()){
@@ -176,7 +177,7 @@ public class Login extends javax.swing.JFrame {
          }
 
         try{
-            
+            Username = username.getText();
             if (value>0){
            String db = "select *from login where Username = '"+username.getText() + "'and Password = '" +String.valueOf(password.getPassword()) + "'";
            ResultSet result = stat.executeQuery(db);
@@ -186,6 +187,7 @@ public class Login extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(null , "Login Berhasil!");
                home = new home();
                home.setVisible(true);
+               new home(nama).setVisible(true);
                this.dispose();
            }
            
@@ -200,6 +202,13 @@ public class Login extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_loginActionPerformed
      
+    public void setNama(String value){
+        JOptionPane.showMessageDialog(null,value);
+        this.Username = value;
+    }
+    
+    
+    
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed

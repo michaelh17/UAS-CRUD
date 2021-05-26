@@ -13,13 +13,15 @@ public class home extends javax.swing.JFrame {
     
     Login welcome = new Login();
     
-    public home() {
+    public home(String value) {
         initComponents();
-      //  welcomemsg.setText("Welcome , " +welcome.getNama() + "!");
+        welcomemsg.setText("Welcome , " +value + "!");
+    }
+    
+    public home(){
+        
     }
 
-    
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
