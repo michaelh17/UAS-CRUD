@@ -14,8 +14,7 @@ import javax.swing.Timer;
 import java.awt.event.ActionListener;
 
 public class home extends javax.swing.JFrame {
-
-    Login welcome = new Login();
+    
     public reservation reservation;
     public home(String value) {
         initComponents();
@@ -24,10 +23,12 @@ public class home extends javax.swing.JFrame {
         showDate();
         
     }
-    
-    public home(){
-        
-        
+          
+     public home(){
+        initComponents();
+        welcomemsg.setText("");
+         showTime();
+         showDate();
     }
     
     public void showDate(){
@@ -57,8 +58,8 @@ public class home extends javax.swing.JFrame {
        tm.start();
 
     }
-       
-  
+    
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -111,14 +112,14 @@ public class home extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 172, Short.MAX_VALUE)
+                .addGap(0, 178, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(169, 169, 169))
+                .addGap(163, 163, 163))
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
