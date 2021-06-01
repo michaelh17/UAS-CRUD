@@ -61,6 +61,8 @@ public class reservation extends javax.swing.JFrame {
         check = new javax.swing.JButton();
         readykamar = new javax.swing.JLabel();
         warning = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,6 +142,10 @@ public class reservation extends javax.swing.JFrame {
 
         warning.setForeground(new java.awt.Color(255, 0, 0));
 
+        jLabel8.setText("Rp. ");
+
+        jLabel11.setText("HARI");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -174,11 +180,17 @@ public class reservation extends javax.swing.JFrame {
                             .addComponent(noHp)
                             .addComponent(tipekamar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tglCheckin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cLamainap, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(harga, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)
+                                .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(check, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)))
+                                .addComponent(harga, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(check, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cLamainap, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel11)))
                         .addContainerGap(61, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -225,12 +237,14 @@ public class reservation extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(cLamainap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cLamainap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(harga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(check))
+                    .addComponent(check)
+                    .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addComponent(readykamar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
@@ -282,7 +296,7 @@ public class reservation extends javax.swing.JFrame {
         if (tkamar.equals("Standard")){
         hargakamar = 250000;
         total = hargakamar * lamamenginap;
-        harga.setText("Rp. "+total);
+        harga.setText(String.valueOf(total));
         String db = "select count(*) as jmlh from standard";
         ResultSet result = stat.executeQuery(db);
         result.next();
@@ -293,7 +307,7 @@ public class reservation extends javax.swing.JFrame {
         else if (tkamar.equals("Family")){
             hargakamar = 500000;
             total = hargakamar * lamamenginap;
-            harga.setText("Rp. "+total);
+            harga.setText(String.valueOf(total));
             String db = "select count(*) as jmlh from family";
             ResultSet result = stat.executeQuery(db);
             result.next();
@@ -304,7 +318,7 @@ public class reservation extends javax.swing.JFrame {
         else if (tkamar.equals("Deluxe")){
             hargakamar = 750000;
             total = hargakamar * lamamenginap;
-            harga.setText("Rp. "+total);
+            harga.setText(String.valueOf(total));
             String db = "select count(*) as jmlh from Deluxe";
             ResultSet result = stat.executeQuery(db);
             result.next();
@@ -315,7 +329,7 @@ public class reservation extends javax.swing.JFrame {
         else if(tkamar.equals("Suite")){
             hargakamar = 1000000;
             total = hargakamar * lamamenginap;
-            harga.setText("Rp. "+total);
+            harga.setText(String.valueOf(total));
             String db = "select count(*) as jmlh from Suite";
             ResultSet result = stat.executeQuery(db);
             result.next();
@@ -421,12 +435,14 @@ public class reservation extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField kodeBooking;
     private javax.swing.JTextField nama;
