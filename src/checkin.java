@@ -1,7 +1,6 @@
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -19,7 +18,6 @@ import javax.swing.JOptionPane;
 public class checkin extends javax.swing.JFrame {
     public Connection cons;
     public Statement stat;
-    public PreparedStatement prestat;
     
     public checkin() {
         initComponents();
@@ -204,33 +202,32 @@ public class checkin extends javax.swing.JFrame {
            ResultSet result = stat.executeQuery(db);
            
            if(result.next()){
-
-               info.setText("Data Ditemukan!");
-               db = "select KodeBooking,Nama,Alamat,No HP,TipeKamar,LamaInap,Harga from reservation where Kodebooking = " +checkkodebooking;
-               prestat = cons.prepareStatement(db);
-               prestat.setString(1,checkkodebooking.getText());
-               ResultSet res = prestat.executeQuery(db);
                
-               if(res.next()){
-                   String kode = res.getString("KodeBooking");
+               info.setText("Data Ditemukan!");
+               JOptionPane.showMessageDialog(null,"test");
+             
+                   String kode = result.getString("KodeBooking");
                    kodebook.setText(kode);
                    
-                   String getnama = res.getString("Nama");
+                   String getnama = result.getString("Nama");
                    name.setText(getnama);
                    
-                   String address = res.getString("Alamat");
+                   String address = result.getString("Alamat");
                    alamat.setText(address);
                    
-                   String number = res.getString("No HP");
+                   String number = result.getString("No HP");
                    nohp.setText(number);
                    
-                   String lama = res.getString("LamaIanp");
+                   String Type = result.getString("TipeKamar");
+                   tipekamar.setText(Type);
+                   
+                   String lama = result.getString("LamaInap");
                    lamainap.setText(lama);
                    
-                   String price = res.getString("Harga");
+                   String price = result.getString("Harga");
                    harga.setText(price);
-               }
-            
+               
+          
                
            }
            
