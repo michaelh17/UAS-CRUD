@@ -188,11 +188,10 @@ public class reservation extends javax.swing.JFrame {
                         .addGap(104, 104, 104))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(readykamar, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(208, 208, 208)
-                .addComponent(warning)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(14, 14, 14))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(warning)
+                        .addGap(228, 228, 228))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,6 +278,7 @@ public class reservation extends javax.swing.JFrame {
         int hargakamar;
         int total;
         try{
+            
         if (tkamar.equals("Standard")){
         hargakamar = 250000;
         total = hargakamar * lamamenginap;
@@ -355,14 +355,22 @@ public class reservation extends javax.swing.JFrame {
         }
         
         else if (tglCheckin == null) {
-            warning.setText("Tanggal  Tidak Boleh Kosong!");
-            value = 1;
+            warning.setText("Tanggal Tidak Boleh Kosong!");
+            value = -1;
+
+        }
+        
+        else if (harga.getText().trim().isEmpty()) {
+            warning.setText("Mohon Click Tombol Check Untuk Menampilkan Harga Sewa!");
+            value = -1;
 
         }
         
         else{
             value = 1;
         }
+        
+        
             String db = "insert into reservation values (?,?,?,?,?,?,?,?)";
             try{
                 if (value>0){
