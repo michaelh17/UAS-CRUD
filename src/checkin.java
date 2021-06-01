@@ -1,4 +1,4 @@
-
+import java.util.Random;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -294,9 +294,7 @@ public class checkin extends javax.swing.JFrame {
                    
                    String price = result.getString("Harga");
                    harga.setText(price);
-               
-          
-               
+
            }
            
            else{
@@ -314,7 +312,71 @@ public class checkin extends javax.swing.JFrame {
         int decision = JOptionPane.showConfirmDialog(null, "Apakah data yang ditampilkan sudah sesuai ?","WARNING!" ,JOptionPane.YES_NO_OPTION , JOptionPane.QUESTION_MESSAGE);
         
         if (decision == JOptionPane.YES_OPTION){
-            JOptionPane.showMessageDialog(null,"ok");
+
+                Random rand = new Random();
+                int RandomNumb = rand.nextInt(10);
+                int kamar;
+                String room =tipekamar.getText();
+                
+            try{
+            if (room.equals("Standard")){
+                kamar = 100+RandomNumb;
+                String dbase = "select *from " +room + " where NoKamar = '" + String.valueOf(kamar) + "'";
+                ResultSet hasil = stat.executeQuery(dbase);
+                
+                if(hasil.next()){
+                String nokamar= hasil.getString("NoKamar");
+                String lantai = hasil.getString("LantaiKamar");
+
+                    JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                }
+                
+            }
+            
+            else if (room.equals("Family")){
+                kamar = 200+RandomNumb;
+                String dbase = "select *from " +room + " where NoKamar = '" + String.valueOf(kamar) + "'";
+                ResultSet hasil = stat.executeQuery(dbase);
+                
+                if(hasil.next()){
+                String nokamar= hasil.getString("NoKamar");
+                String lantai = hasil.getString("LantaiKamar");
+
+                    JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                }
+            }
+            
+            else if (room.equals("Deluxe")){
+                kamar = 300+RandomNumb;
+                String dbase = "select *from " +room + " where NoKamar = '" + String.valueOf(kamar) + "'";
+                ResultSet hasil = stat.executeQuery(dbase);
+                
+                if(hasil.next()){
+                String nokamar= hasil.getString("NoKamar");
+                String lantai = hasil.getString("LantaiKamar");
+
+                    JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!\n" + "Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                }
+            }
+            
+            else if (room.equals("Suite")){
+                kamar = 400+RandomNumb;
+                String dbase = "select *from " +room + " where NoKamar = '" + String.valueOf(kamar) + "'";
+                ResultSet hasil = stat.executeQuery(dbase);
+                
+                if(hasil.next()){
+                String nokamar= hasil.getString("NoKamar");
+                String lantai = hasil.getString("LantaiKamar");
+
+                    JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!\n" + "Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                }
+            }
+
+         }
+            
+            catch (Exception E){
+                JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
+            }
         }
         
         
