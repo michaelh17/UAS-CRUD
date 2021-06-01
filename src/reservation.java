@@ -2,13 +2,12 @@ import java.util.Random;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.sql.PreparedStatement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 public class reservation extends javax.swing.JFrame {
     public home home;
@@ -26,6 +25,7 @@ public class reservation extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Program Can't Connect To Database!");
             System.exit(0);
         }
+        
          Random rand = new Random();
         int RandNumb = rand.nextInt(1000);
         
@@ -34,7 +34,7 @@ public class reservation extends javax.swing.JFrame {
         kodeBooking.setText("HSB-" +RandNumb);
         harga.setEditable(false);
     }
-  
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -191,7 +191,7 @@ public class reservation extends javax.swing.JFrame {
                         .addGap(14, 14, 14))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(warning)
-                        .addGap(228, 228, 228))))
+                        .addGap(171, 171, 171))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,7 +334,14 @@ public class reservation extends javax.swing.JFrame {
         int value;
         String type = tipekamar.getSelectedItem().toString();
         String lama = cLamainap.getSelectedItem().toString();
-        if(nama.getText().trim().isEmpty() && alamat.getText().trim().isEmpty() && noHp.getText().trim().isEmpty() && tglCheckin == null){
+        
+        
+        Date day = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = tglCheckin.getDate();
+        String tanggal = DateFormat.getDateInstance().format(date);
+        
+        if(nama.getText().trim().isEmpty() && alamat.getText().trim().isEmpty() && noHp.getText().trim().isEmpty() && tanggal== null){
              warning.setText("Kolom Tidak Boleh Kosong!");
              value = -1;
         }
@@ -352,12 +359,6 @@ public class reservation extends javax.swing.JFrame {
         else if(noHp.getText().trim().isEmpty()){
             warning.setText("No HP Tidak Boleh Kosong!");
             value = -1;
-        }
-        
-        else if (tglCheckin == null) {
-            warning.setText("Tanggal Tidak Boleh Kosong!");
-            value = -1;
-
         }
         
         else if (harga.getText().trim().isEmpty()) {
@@ -380,7 +381,7 @@ public class reservation extends javax.swing.JFrame {
              statement.setString(3,alamat.getText());
              statement.setString(4,noHp.getText());
              statement.setString(5,type);
-             statement.setString(6,tglCheckin.getDateFormatString());
+             statement.setString(6,tanggal);
              statement.setString(7,lama);
              statement.setString(8,harga.getText());
           
