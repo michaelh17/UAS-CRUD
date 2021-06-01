@@ -47,9 +47,9 @@ public class reservation extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         kodeBooking = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        nama = new javax.swing.JTextField();
+        alamat = new javax.swing.JTextField();
+        noHp = new javax.swing.JTextField();
         tipekamar = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -60,6 +60,7 @@ public class reservation extends javax.swing.JFrame {
         cLamainap = new javax.swing.JComboBox<>();
         check = new javax.swing.JButton();
         readykamar = new javax.swing.JLabel();
+        warning = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,9 +85,9 @@ public class reservation extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        nama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                namaActionPerformed(evt);
             }
         });
 
@@ -105,6 +106,11 @@ public class reservation extends javax.swing.JFrame {
         });
 
         jButton2.setText("Reserve");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("HARGA");
 
@@ -131,6 +137,8 @@ public class reservation extends javax.swing.JFrame {
         });
 
         readykamar.setForeground(new java.awt.Color(255, 0, 0));
+
+        warning.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,9 +169,9 @@ public class reservation extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(kodeBooking)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
+                            .addComponent(nama)
+                            .addComponent(alamat)
+                            .addComponent(noHp)
                             .addComponent(tipekamar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tglCheckin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cLamainap, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -181,6 +189,10 @@ public class reservation extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(readykamar, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(208, 208, 208)
+                .addComponent(warning)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,15 +206,15 @@ public class reservation extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(noHp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -222,7 +234,9 @@ public class reservation extends javax.swing.JFrame {
                     .addComponent(check))
                 .addGap(18, 18, 18)
                 .addComponent(readykamar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(warning)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -237,9 +251,9 @@ public class reservation extends javax.swing.JFrame {
        
     }//GEN-LAST:event_kodeBookingActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_namaActionPerformed
 
     private void tipekamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipekamarActionPerformed
         
@@ -316,6 +330,67 @@ public class reservation extends javax.swing.JFrame {
         
     }//GEN-LAST:event_checkActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int value;
+        String type = tipekamar.getSelectedItem().toString();
+        String lama = cLamainap.getSelectedItem().toString();
+        if(nama.getText().trim().isEmpty() && alamat.getText().trim().isEmpty() && noHp.getText().trim().isEmpty() && tglCheckin == null){
+             warning.setText("Kolom Tidak Boleh Kosong!");
+             value = -1;
+        }
+        
+        else if(nama.getText().trim().isEmpty()){
+             warning.setText("Nama Tidak Boleh Kosong!");
+             value = -1;
+        }
+        
+        else if(alamat.getText().trim().isEmpty()){
+             warning.setText("Alamat Tidak Boleh Kosong!");
+             value = -1;
+        }
+        
+        else if(noHp.getText().trim().isEmpty()){
+            warning.setText("No HP Tidak Boleh Kosong!");
+            value = -1;
+        }
+        
+        else if (tglCheckin == null) {
+            warning.setText("Tanggal  Tidak Boleh Kosong!");
+            value = 1;
+
+        }
+        
+        else{
+            value = 1;
+        }
+            String db = "insert into reservation values (?,?,?,?,?,?,?,?)";
+            try{
+                if (value>0){
+             PreparedStatement statement = cons.prepareStatement(db);
+             statement.setString(1,kodeBooking.getText());
+             statement.setString(2,nama.getText());
+             statement.setString(3,alamat.getText());
+             statement.setString(4,noHp.getText());
+             statement.setString(5,type);
+             statement.setString(6,tglCheckin.getDateFormatString());
+             statement.setString(7,lama);
+             statement.setString(8,harga.getText());
+          
+              statement.executeUpdate();
+              JOptionPane.showMessageDialog(null,"Reservation Complete! You will be directed back to home page");
+              home home = new home();
+              home.setVisible(true);
+               this.dispose();
+            }
+                
+                
+                 
+        }
+           catch (Exception E){
+           JOptionPane.showMessageDialog(null, "Register Gagal!");
+           }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -329,6 +404,7 @@ public class reservation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField alamat;
     private javax.swing.JComboBox<String> cLamainap;
     private javax.swing.JButton check;
     private javax.swing.JTextField harga;
@@ -343,12 +419,12 @@ public class reservation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField kodeBooking;
+    private javax.swing.JTextField nama;
+    private javax.swing.JTextField noHp;
     private javax.swing.JLabel readykamar;
     private com.toedter.calendar.JDateChooser tglCheckin;
     private javax.swing.JComboBox<String> tipekamar;
+    private javax.swing.JLabel warning;
     // End of variables declaration//GEN-END:variables
 }
