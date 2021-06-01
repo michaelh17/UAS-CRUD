@@ -1,3 +1,11 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,12 +17,31 @@
  * @author Michael
  */
 public class checkin extends javax.swing.JFrame {
-
-    /**
-     * Creates new form checkin
-     */
+    public Connection cons;
+    public Statement stat;
+    public PreparedStatement prestat;
+    
     public checkin() {
         initComponents();
+        
+         try{
+            Class.forName("com.mysql.jdbc.Driver");
+            cons = DriverManager.getConnection("jdbc:mysql://localhost:3306/crud","root",""); //connection
+            stat = cons.createStatement();
+        
+        }
+        catch (Exception E) {
+            JOptionPane.showMessageDialog(null,"Program Can't Connect To Database!");
+            System.exit(0);
+        }
+         
+         kodebook.setEditable(false);
+         name.setEditable(false);
+         alamat.setEditable(false);
+         nohp.setEditable(false);
+         tipekamar.setEditable(false);
+         lamainap.setEditable(false);
+         harga.setEditable(false);
     }
 
     /**
@@ -26,21 +53,197 @@ public class checkin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        checkkodebooking = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        name = new javax.swing.JTextField();
+        kodebook = new javax.swing.JTextField();
+        alamat = new javax.swing.JTextField();
+        nohp = new javax.swing.JTextField();
+        tipekamar = new javax.swing.JTextField();
+        lamainap = new javax.swing.JTextField();
+        harga = new javax.swing.JTextField();
+        info = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setText("Masukkan Kode Booking Yang Didapat  : ");
+
+        checkkodebooking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkkodebookingActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("KODE BOOKING :");
+
+        jLabel3.setText("NAMA : ");
+
+        jLabel4.setText("ALAMAT : ");
+
+        jLabel5.setText("NOMOR HP :");
+
+        jLabel6.setText("TIPE KAMAR :");
+
+        jLabel7.setText("LAMA INAP :");
+
+        jLabel8.setText("HARGA : ");
+
+        info.setBackground(new java.awt.Color(0, 0, 0));
+        info.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        info.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(alamat)
+                            .addComponent(name)
+                            .addComponent(kodebook)
+                            .addComponent(nohp, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tipekamar)
+                            .addComponent(lamainap, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(harga)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(checkkodebooking, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)))
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkkodebooking, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(info)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(kodebook, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(nohp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(tipekamar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(lamainap, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(harga, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void checkkodebookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkkodebookingActionPerformed
+        
+    }//GEN-LAST:event_checkkodebookingActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       try{
+           String db = "select *from reservation where KodeBooking = '" +checkkodebooking.getText() + "'";
+           
+           ResultSet result = stat.executeQuery(db);
+           
+           if(result.next()){
+
+               info.setText("Data Ditemukan!");
+               db = "select KodeBooking,Nama,Alamat,No HP,TipeKamar,LamaInap,Harga from reservation where Kodebooking = " +checkkodebooking;
+               prestat = cons.prepareStatement(db);
+               prestat.setString(1,checkkodebooking.getText());
+               ResultSet res = prestat.executeQuery(db);
+               
+               if(res.next()){
+                   String kode = res.getString("KodeBooking");
+                   kodebook.setText(kode);
+                   
+                   String getnama = res.getString("Nama");
+                   name.setText(getnama);
+                   
+                   String address = res.getString("Alamat");
+                   alamat.setText(address);
+                   
+                   String number = res.getString("No HP");
+                   nohp.setText(number);
+                   
+                   String lama = res.getString("LamaIanp");
+                   lamainap.setText(lama);
+                   
+                   String price = res.getString("Harga");
+                   harga.setText(price);
+               }
+            
+               
+           }
+           
+           else{
+               info.setText("Data Tidak Ditemukan!");
+           }
+       
+       }
+       
+       catch(Exception E){
+           JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
+       }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +281,23 @@ public class checkin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField alamat;
+    private javax.swing.JTextField checkkodebooking;
+    private javax.swing.JTextField harga;
+    private javax.swing.JLabel info;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JTextField kodebook;
+    private javax.swing.JTextField lamainap;
+    private javax.swing.JTextField name;
+    private javax.swing.JTextField nohp;
+    private javax.swing.JTextField tipekamar;
     // End of variables declaration//GEN-END:variables
 }
