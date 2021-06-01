@@ -59,7 +59,7 @@ public class reservation extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cLamainap = new javax.swing.JComboBox<>();
         check = new javax.swing.JButton();
-        ketersediaankamar = new javax.swing.JLabel();
+        readykamar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,7 +130,7 @@ public class reservation extends javax.swing.JFrame {
             }
         });
 
-        ketersediaankamar.setText("jLabel8");
+        readykamar.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,8 +179,8 @@ public class reservation extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(104, 104, 104))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(ketersediaankamar, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61))))
+                        .addComponent(readykamar, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,9 +220,9 @@ public class reservation extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(harga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(check))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(ketersediaankamar)
                 .addGap(18, 18, 18)
+                .addComponent(readykamar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -264,32 +264,55 @@ public class reservation extends javax.swing.JFrame {
         int lamamenginap = Integer.parseInt(cLamainap.getSelectedItem().toString());
         int hargakamar;
         int total;
-        
-        if (tkamar.equals("standard")){
+        try{
+        if (tkamar.equals("Standard")){
         hargakamar = 250000;
         total = hargakamar * lamamenginap;
         harga.setText("Rp. "+total);
-        
+        String db = "select count(*) as jmlh from standard";
+        ResultSet result = stat.executeQuery(db);
+        result.next();
+        int hasil = result.getInt(1);
+        readykamar.setText("Terdapat " +hasil + " Kamar Kosong Untuk Tipe Kamar Standard");
     }
         
         else if (tkamar.equals("Family")){
             hargakamar = 500000;
             total = hargakamar * lamamenginap;
             harga.setText("Rp. "+total);
+            String db = "select count(*) as jmlh from family";
+            ResultSet result = stat.executeQuery(db);
+            result.next();
+            int hasil = result.getInt(1);
+            readykamar.setText("Terdapat " +hasil + " Kamar Kosong Untuk Tipe Kamar Family");
         }
         
         else if (tkamar.equals("Deluxe")){
             hargakamar = 750000;
             total = hargakamar * lamamenginap;
             harga.setText("Rp. "+total);
+            String db = "select count(*) as jmlh from Deluxe";
+            ResultSet result = stat.executeQuery(db);
+            result.next();
+            int hasil = result.getInt(1);
+            readykamar.setText("Terdapat " +hasil + " Kamar Kosong Untuk Tipe Kamar Deluxe");
         }
         
-        else{
+        else if(tkamar.equals("Suite")){
             hargakamar = 1000000;
             total = hargakamar * lamamenginap;
             harga.setText("Rp. "+total);
+            String db = "select count(*) as jmlh from Suite";
+            ResultSet result = stat.executeQuery(db);
+            result.next();
+            int hasil = result.getInt(1);
+            readykamar.setText("Terdapat " +hasil + " Kamar Kosong Untuk Tipe Kamar Suite");
         }
         
+        }
+        catch(Exception E){
+            JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
+        }
         
     }//GEN-LAST:event_checkActionPerformed
 
@@ -323,8 +346,8 @@ public class reservation extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JLabel ketersediaankamar;
     private javax.swing.JTextField kodeBooking;
+    private javax.swing.JLabel readykamar;
     private com.toedter.calendar.JDateChooser tglCheckin;
     private javax.swing.JComboBox<String> tipekamar;
     // End of variables declaration//GEN-END:variables
