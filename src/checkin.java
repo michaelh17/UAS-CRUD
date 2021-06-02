@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class checkin extends javax.swing.JFrame {
     public Connection cons;
     public Statement stat;
-    
+    int value;
     public checkin() {
         initComponents();
         
@@ -75,6 +75,7 @@ public class checkin extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        warning = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,6 +143,9 @@ public class checkin extends javax.swing.JFrame {
             }
         });
 
+        warning.setForeground(new java.awt.Color(204, 51, 0));
+        warning.setText("        ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -193,13 +197,18 @@ public class checkin extends javax.swing.JFrame {
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(224, 224, 224))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(225, 225, 225)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(warning)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,13 +255,15 @@ public class checkin extends javax.swing.JFrame {
                     .addComponent(jLabel10))
                 .addGap(38, 38, 38)
                 .addComponent(jLabel9)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(warning)
+                .addGap(8, 8, 8)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -316,6 +327,18 @@ public class checkin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        if(kodebook.getText().trim().isEmpty() && name.getText().trim().isEmpty() && alamat.getText().trim().isEmpty() && nohp.getText().trim().isEmpty()
+              && tipekamar.getText().trim().isEmpty() && lamainap.getText().trim().isEmpty() && harga.getText().trim().isEmpty()){
+            warning.setText("Data Tidak Ditemukan! Mohon Masukkan Kode Booking Yang Sesuai!");
+            value = -1;
+        }
+        
+        else{
+            value = 1;
+        }
+        
+        if (value > 0){
         int decision = JOptionPane.showConfirmDialog(null, "Apakah data yang ditampilkan sudah sesuai ?","WARNING!" ,JOptionPane.YES_NO_OPTION , JOptionPane.QUESTION_MESSAGE);
         
         if (decision == JOptionPane.YES_OPTION){
@@ -324,7 +347,7 @@ public class checkin extends javax.swing.JFrame {
                 int RandomNumb = rand.nextInt(10);
                 int kamar;
                 String room =tipekamar.getText();
-                
+        
             try{
             if (room.equals("Standard")){
                 kamar = 100+RandomNumb;
@@ -378,12 +401,14 @@ public class checkin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!\n" + "Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
                 }
             }
+            
 
          }
             
             catch (Exception E){
                 JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
             }
+        }
         }
         
         
@@ -460,5 +485,6 @@ public class checkin extends javax.swing.JFrame {
     private javax.swing.JTextField name;
     private javax.swing.JTextField nohp;
     private javax.swing.JTextField tipekamar;
+    private javax.swing.JLabel warning;
     // End of variables declaration//GEN-END:variables
 }
