@@ -1,6 +1,7 @@
 import java.util.Random;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -350,18 +351,20 @@ public class checkin extends javax.swing.JFrame {
                 int intharga;
                 int kembalian;
                 String room =tipekamar.getText();
-        
+
             try{
+                String data = "insert into checkin values (?,?,?,?,?,?,?,?,?,?);";
             if (room.equals("Standard")){
                 kamar = 100+RandomNumb;
                 String dbase = "select *from " +room + " where NoKamar = '" + String.valueOf(kamar) + "'";
+               
                 ResultSet hasil = stat.executeQuery(dbase);
                 
                 if(hasil.next()){
                 String nokamar= hasil.getString("NoKamar");
                 String lantai = hasil.getString("LantaiKamar");
                 
-do{
+                do{
                  pembayaran = Integer.parseInt(JOptionPane.showInputDialog("Harga Kamar : Rp. " +harga.getText() + "\nMasukkan Jumlah Uang : "));
                 
                 intharga = Integer.valueOf(harga.getText());
@@ -370,6 +373,21 @@ do{
                     kembalian = pembayaran - intharga;
                     JOptionPane.showMessageDialog(null,"Pembayaran Berhasil! Jumlah Kembalian : Rp. " +kembalian);
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                     
+                    PreparedStatement statement = cons.prepareStatement(data);
+                    
+                    statement.setString(1, kodebook.getText());
+                    statement.setString(2, name.getText());
+                    statement.setString(3, alamat.getText());
+                    statement.setString(4, nohp.getText());
+                    statement.setString(5, tipekamar.getText());
+                    statement.setString(6, nokamar);
+                    statement.setString(7, lamainap.getText());
+                    statement.setString(8, harga.getText());
+                    statement.setString(9, String.valueOf(pembayaran));
+                    statement.setString(10, String.valueOf(kembalian));
+                    
+                    statement.executeUpdate();
                     home home = new home();
                     home.setVisible(true);
                     this.dispose();
@@ -378,7 +396,7 @@ do{
                 else{
                     JOptionPane.showMessageDialog(null, "Pembayaran Kurang! Masukkan Jumlah Uang Kembali!");   
                   }
-                }while(pembayaran < intharga);
+                }while(pembayaran < intharga);           
               }
             }
             
@@ -399,6 +417,21 @@ do{
                     kembalian = pembayaran - intharga;
                     JOptionPane.showMessageDialog(null,"Pembayaran Berhasil! Jumlah Kembalian : Rp. " +kembalian);
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                    
+                    PreparedStatement statement = cons.prepareStatement(data);
+                    
+                     statement.setString(1, kodebook.getText());
+                    statement.setString(2, name.getText());
+                    statement.setString(3, alamat.getText());
+                    statement.setString(4, nohp.getText());
+                    statement.setString(5, tipekamar.getText());
+                    statement.setString(6, nokamar);
+                    statement.setString(7, lamainap.getText());
+                    statement.setString(8, harga.getText());
+                    statement.setString(9, String.valueOf(pembayaran));
+                    statement.setString(10, String.valueOf(kembalian));
+                    
+                    statement.executeUpdate();
                     home home = new home();
                     home.setVisible(true);
                     this.dispose();
@@ -429,6 +462,21 @@ do{
                     kembalian = pembayaran - intharga;
                     JOptionPane.showMessageDialog(null,"Pembayaran Berhasil! Jumlah Kembalian : Rp. " +kembalian);
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                    
+                    PreparedStatement statement = cons.prepareStatement(data);
+                    
+                     statement.setString(1, kodebook.getText());
+                    statement.setString(2, name.getText());
+                    statement.setString(3, alamat.getText());
+                    statement.setString(4, nohp.getText());
+                    statement.setString(5, tipekamar.getText());
+                    statement.setString(6, nokamar);
+                    statement.setString(7, lamainap.getText());
+                    statement.setString(8, harga.getText());
+                    statement.setString(9, String.valueOf(pembayaran));
+                    statement.setString(10, String.valueOf(kembalian));
+                    
+                    statement.executeUpdate();
                     home home = new home();
                     home.setVisible(true);
                     this.dispose();
@@ -458,6 +506,21 @@ do{
                     kembalian = pembayaran - intharga;
                     JOptionPane.showMessageDialog(null,"Pembayaran Berhasil! Jumlah Kembalian : Rp. " +kembalian);
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                    
+                    PreparedStatement statement = cons.prepareStatement(data);
+                    
+                     statement.setString(1, kodebook.getText());
+                    statement.setString(2, name.getText());
+                    statement.setString(3, alamat.getText());
+                    statement.setString(4, nohp.getText());
+                    statement.setString(5, tipekamar.getText());
+                    statement.setString(6, nokamar);
+                    statement.setString(7, lamainap.getText());
+                    statement.setString(8, harga.getText());
+                    statement.setString(9, String.valueOf(pembayaran));
+                    statement.setString(10, String.valueOf(kembalian));
+                    
+                    statement.executeUpdate();
                     home home = new home();
                     home.setVisible(true);
                     this.dispose();
@@ -469,14 +532,13 @@ do{
                 }while(pembayaran < intharga);
               }
             }
-            
 
          }
             
             catch (Exception E){
                 JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
             }
-        }
+          }
         }
         
         
