@@ -346,6 +346,9 @@ public class checkin extends javax.swing.JFrame {
                 Random rand = new Random();
                 int RandomNumb = rand.nextInt(10);
                 int kamar;
+                int pembayaran;
+                int intharga;
+                int kembalian;
                 String room =tipekamar.getText();
         
             try{
@@ -357,10 +360,26 @@ public class checkin extends javax.swing.JFrame {
                 if(hasil.next()){
                 String nokamar= hasil.getString("NoKamar");
                 String lantai = hasil.getString("LantaiKamar");
-
+                
+do{
+                 pembayaran = Integer.parseInt(JOptionPane.showInputDialog("Harga Kamar : Rp. " +harga.getText() + "\nMasukkan Jumlah Uang : "));
+                
+                intharga = Integer.valueOf(harga.getText());
+            
+                if(pembayaran >= intharga){
+                    kembalian = pembayaran - intharga;
+                    JOptionPane.showMessageDialog(null,"Pembayaran Berhasil! Jumlah Kembalian : Rp. " +kembalian);
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                    home home = new home();
+                    home.setVisible(true);
+                    this.dispose();
                 }
                 
+                else{
+                    JOptionPane.showMessageDialog(null, "Pembayaran Kurang! Masukkan Jumlah Uang Kembali!");   
+                  }
+                }while(pembayaran < intharga);
+              }
             }
             
             else if (room.equals("Family")){
@@ -371,9 +390,25 @@ public class checkin extends javax.swing.JFrame {
                 if(hasil.next()){
                 String nokamar= hasil.getString("NoKamar");
                 String lantai = hasil.getString("LantaiKamar");
-
+                do{
+                 pembayaran = Integer.parseInt(JOptionPane.showInputDialog("Harga Kamar : Rp. " +harga.getText() + "\nMasukkan Jumlah Uang : "));
+                
+                intharga = Integer.valueOf(harga.getText());
+            
+                if(pembayaran >= intharga){
+                    kembalian = pembayaran - intharga;
+                    JOptionPane.showMessageDialog(null,"Pembayaran Berhasil! Jumlah Kembalian : Rp. " +kembalian);
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                    home home = new home();
+                    home.setVisible(true);
+                    this.dispose();
                 }
+                
+                else{
+                    JOptionPane.showMessageDialog(null, "Pembayaran Kurang! Masukkan Jumlah Uang Kembali!");   
+                  }
+                }while(pembayaran < intharga);
+              }
             }
             
             else if (room.equals("Deluxe")){
@@ -385,8 +420,25 @@ public class checkin extends javax.swing.JFrame {
                 String nokamar= hasil.getString("NoKamar");
                 String lantai = hasil.getString("LantaiKamar");
 
-                    JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!\n" + "Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+              do{
+                 pembayaran = Integer.parseInt(JOptionPane.showInputDialog("Harga Kamar : Rp. " +harga.getText() + "\nMasukkan Jumlah Uang : "));
+                
+                intharga = Integer.valueOf(harga.getText());
+            
+                if(pembayaran >= intharga){
+                    kembalian = pembayaran - intharga;
+                    JOptionPane.showMessageDialog(null,"Pembayaran Berhasil! Jumlah Kembalian : Rp. " +kembalian);
+                    JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                    home home = new home();
+                    home.setVisible(true);
+                    this.dispose();
                 }
+                
+                else{
+                    JOptionPane.showMessageDialog(null, "Pembayaran Kurang! Masukkan Jumlah Uang Kembali!");   
+                  }
+                }while(pembayaran < intharga);
+              }
             }
             
             else if (room.equals("Suite")){
@@ -397,9 +449,25 @@ public class checkin extends javax.swing.JFrame {
                 if(hasil.next()){
                 String nokamar= hasil.getString("NoKamar");
                 String lantai = hasil.getString("LantaiKamar");
-
-                    JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!\n" + "Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                do{
+                 pembayaran = Integer.parseInt(JOptionPane.showInputDialog("Harga Kamar : Rp. " +harga.getText() + "\nMasukkan Jumlah Uang : "));
+                
+                intharga = Integer.valueOf(harga.getText());
+            
+                if(pembayaran >= intharga){
+                    kembalian = pembayaran - intharga;
+                    JOptionPane.showMessageDialog(null,"Pembayaran Berhasil! Jumlah Kembalian : Rp. " +kembalian);
+                    JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
+                    home home = new home();
+                    home.setVisible(true);
+                    this.dispose();
                 }
+                
+                else{
+                    JOptionPane.showMessageDialog(null, "Pembayaran Kurang! Masukkan Jumlah Uang Kembali!");   
+                  }
+                }while(pembayaran < intharga);
+              }
             }
             
 

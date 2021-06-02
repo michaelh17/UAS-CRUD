@@ -26,7 +26,7 @@ public class home extends javax.swing.JFrame {
           
      public home(){
         initComponents();    
-        welcomemsg.setText("");
+        welcomemsg.setText("HOTEL SEMUA BAHAGIA");
          showTime();
          showDate();
     }
