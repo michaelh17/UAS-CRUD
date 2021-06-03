@@ -379,7 +379,7 @@ public class checkin extends javax.swing.JFrame {
             if (room.equals("Standard")){
                 kamar = 100+RandomNumb;
                 String dbase = "select *from " +room + " where NoKamar = '" + String.valueOf(kamar) + "'";
-               
+               String hapuskamar = "delete from standard where NoKamar = '" + String.valueOf(kamar) + "'";
                 ResultSet hasil = stat.executeQuery(dbase);
                 
                 if(hasil.next()){
@@ -397,6 +397,7 @@ public class checkin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
                      
                     PreparedStatement statement = cons.prepareStatement(data);
+                    PreparedStatement statement2 = cons.prepareStatement(hapuskamar);
                     
                     statement.setString(1, kodebook.getText());
                     statement.setString(2, name.getText());
@@ -411,6 +412,7 @@ public class checkin extends javax.swing.JFrame {
                     statement.setString(11, String.valueOf(kembalian));
                     
                     statement.executeUpdate();
+                    statement2.executeUpdate();
                     home home = new home();
                     home.setVisible(true);
                     this.dispose();
@@ -426,6 +428,7 @@ public class checkin extends javax.swing.JFrame {
             else if (room.equals("Family")){
                 kamar = 200+RandomNumb;
                 String dbase = "select *from " +room + " where NoKamar = '" + String.valueOf(kamar) + "'";
+                String hapuskamar = "delete from Family where NoKamar = '" + String.valueOf(kamar) + "'";
                 ResultSet hasil = stat.executeQuery(dbase);
                 
                 if(hasil.next()){
@@ -442,6 +445,7 @@ public class checkin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
                     
                     PreparedStatement statement = cons.prepareStatement(data);
+                    PreparedStatement statement2 = cons.prepareStatement(hapuskamar);
                     
                     statement.setString(1, kodebook.getText());
                     statement.setString(2, name.getText());
@@ -456,6 +460,7 @@ public class checkin extends javax.swing.JFrame {
                     statement.setString(11, String.valueOf(kembalian));
                     
                     statement.executeUpdate();
+                    statement2.executeUpdate();
                     home home = new home();
                     home.setVisible(true);
                     this.dispose();
@@ -471,6 +476,7 @@ public class checkin extends javax.swing.JFrame {
             else if (room.equals("Deluxe")){
                 kamar = 300+RandomNumb;
                 String dbase = "select *from " +room + " where NoKamar = '" + String.valueOf(kamar) + "'";
+                 String hapuskamar = "delete from Deluxe where NoKamar = '" + String.valueOf(kamar) + "'";
                 ResultSet hasil = stat.executeQuery(dbase);
                 
                 if(hasil.next()){
@@ -488,6 +494,7 @@ public class checkin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
                     
                     PreparedStatement statement = cons.prepareStatement(data);
+                    PreparedStatement statement2 = cons.prepareStatement(hapuskamar);
                     
                     statement.setString(1, kodebook.getText());
                     statement.setString(2, name.getText());
@@ -502,6 +509,7 @@ public class checkin extends javax.swing.JFrame {
                     statement.setString(11, String.valueOf(kembalian));
                     
                     statement.executeUpdate();
+                    statement2.executeUpdate();
                     home home = new home();
                     home.setVisible(true);
                     this.dispose();
@@ -517,6 +525,7 @@ public class checkin extends javax.swing.JFrame {
             else if (room.equals("Suite")){
                 kamar = 400+RandomNumb;
                 String dbase = "select *from " +room + " where NoKamar = '" + String.valueOf(kamar) + "'";
+                String hapuskamar = "delete from Suite where NoKamar = '" + String.valueOf(kamar) + "'";
                 ResultSet hasil = stat.executeQuery(dbase);
                 
                 if(hasil.next()){
@@ -533,6 +542,7 @@ public class checkin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
                     
                     PreparedStatement statement = cons.prepareStatement(data);
+                    PreparedStatement statement2 = cons.prepareStatement(hapuskamar);
                     
                     statement.setString(1, kodebook.getText());
                     statement.setString(2, name.getText());
@@ -547,6 +557,7 @@ public class checkin extends javax.swing.JFrame {
                     statement.setString(11, String.valueOf(kembalian));
                     
                     statement.executeUpdate();
+                    statement2.executeUpdate();
                     home home = new home();
                     home.setVisible(true);
                     this.dispose();
