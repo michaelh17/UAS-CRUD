@@ -354,6 +354,7 @@ public class checkin extends javax.swing.JFrame {
 
             try{
                 String data = "insert into checkin values (?,?,?,?,?,?,?,?,?,?);";
+                String delete = "delete from reservation where KodeBooking = '" +kodebook.getText() + "'";
             if (room.equals("Standard")){
                 kamar = 100+RandomNumb;
                 String dbase = "select *from " +room + " where NoKamar = '" + String.valueOf(kamar) + "'";
@@ -375,7 +376,7 @@ public class checkin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
                      
                     PreparedStatement statement = cons.prepareStatement(data);
-                    
+                    PreparedStatement statement2 = cons.prepareStatement(delete);
                     statement.setString(1, kodebook.getText());
                     statement.setString(2, name.getText());
                     statement.setString(3, alamat.getText());
@@ -388,6 +389,7 @@ public class checkin extends javax.swing.JFrame {
                     statement.setString(10, String.valueOf(kembalian));
                     
                     statement.executeUpdate();
+                    statement2.executeUpdate();
                     home home = new home();
                     home.setVisible(true);
                     this.dispose();
