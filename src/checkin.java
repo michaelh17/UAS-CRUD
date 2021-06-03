@@ -39,6 +39,7 @@ public class checkin extends javax.swing.JFrame {
          alamat.setEditable(false);
          nohp.setEditable(false);
          tipekamar.setEditable(false);
+         tglcheck.setEditable(false);
          lamainap.setEditable(false);
          harga.setEditable(false);
     }
@@ -77,6 +78,8 @@ public class checkin extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         warning = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        tglcheck = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,6 +112,12 @@ public class checkin extends javax.swing.JFrame {
         jLabel7.setText("LAMA INAP :");
 
         jLabel8.setText("HARGA : ");
+
+        tipekamar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipekamarActionPerformed(evt);
+            }
+        });
 
         info.setBackground(new java.awt.Color(0, 0, 0));
         info.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -147,13 +156,46 @@ public class checkin extends javax.swing.JFrame {
         warning.setForeground(new java.awt.Color(204, 51, 0));
         warning.setText("        ");
 
+        jLabel12.setText("TGL CHECK IN :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(75, 75, 75)
+                                .addComponent(warning)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(checkkodebooking, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(126, 126, 126)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
                 .addGap(88, 88, 88)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel12)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4)
@@ -177,39 +219,9 @@ public class checkin extends javax.swing.JFrame {
                         .addComponent(lamainap, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel11)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(tglcheck))
                 .addGap(50, 50, 50))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(checkkodebooking, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1)))
-                        .addContainerGap(50, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(225, 225, 225)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(warning)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,7 +248,7 @@ public class checkin extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(nohp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -244,7 +256,11 @@ public class checkin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(tipekamar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tglcheck, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(lamainap, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -254,17 +270,20 @@ public class checkin extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(harga, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addGap(38, 38, 38)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(warning)
-                .addGap(8, 8, 8)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26))
         );
 
         pack();
@@ -299,6 +318,9 @@ public class checkin extends javax.swing.JFrame {
                    
                    String Type = result.getString("TipeKamar");
                    tipekamar.setText(Type);
+                   
+                   String tgl = result.getString("TglCheckIn");
+                   tglcheck.setText(tgl);
                    
                    String lama = result.getString("LamaInap");
                    lamainap.setText(lama);
@@ -353,8 +375,7 @@ public class checkin extends javax.swing.JFrame {
                 String room =tipekamar.getText();
 
             try{
-                String data = "insert into checkin values (?,?,?,?,?,?,?,?,?,?);";
-                String delete = "delete from reservation where KodeBooking = '" +kodebook.getText() + "'";
+                String data = "insert into checkin values (?,?,?,?,?,?,?,?,?,?,?);";
             if (room.equals("Standard")){
                 kamar = 100+RandomNumb;
                 String dbase = "select *from " +room + " where NoKamar = '" + String.valueOf(kamar) + "'";
@@ -376,7 +397,7 @@ public class checkin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Selamat Anda BERHASIL Check In!" + " Kamar Anda Ada Di Lantai "+lantai + "\nDengan Nomor Kamar : " +nokamar);
                      
                     PreparedStatement statement = cons.prepareStatement(data);
-                    PreparedStatement statement2 = cons.prepareStatement(delete);
+                    
                     statement.setString(1, kodebook.getText());
                     statement.setString(2, name.getText());
                     statement.setString(3, alamat.getText());
@@ -384,12 +405,12 @@ public class checkin extends javax.swing.JFrame {
                     statement.setString(5, tipekamar.getText());
                     statement.setString(6, nokamar);
                     statement.setString(7, lamainap.getText());
-                    statement.setString(8, harga.getText());
-                    statement.setString(9, String.valueOf(pembayaran));
-                    statement.setString(10, String.valueOf(kembalian));
+                    statement.setString(8, tglcheck.getText());
+                    statement.setString(9, harga.getText());
+                    statement.setString(10, String.valueOf(pembayaran));
+                    statement.setString(11, String.valueOf(kembalian));
                     
                     statement.executeUpdate();
-                    statement2.executeUpdate();
                     home home = new home();
                     home.setVisible(true);
                     this.dispose();
@@ -422,16 +443,17 @@ public class checkin extends javax.swing.JFrame {
                     
                     PreparedStatement statement = cons.prepareStatement(data);
                     
-                     statement.setString(1, kodebook.getText());
+                    statement.setString(1, kodebook.getText());
                     statement.setString(2, name.getText());
                     statement.setString(3, alamat.getText());
                     statement.setString(4, nohp.getText());
                     statement.setString(5, tipekamar.getText());
                     statement.setString(6, nokamar);
                     statement.setString(7, lamainap.getText());
-                    statement.setString(8, harga.getText());
-                    statement.setString(9, String.valueOf(pembayaran));
-                    statement.setString(10, String.valueOf(kembalian));
+                    statement.setString(8, tglcheck.getText());
+                    statement.setString(9, harga.getText());
+                    statement.setString(10, String.valueOf(pembayaran));
+                    statement.setString(11, String.valueOf(kembalian));
                     
                     statement.executeUpdate();
                     home home = new home();
@@ -467,16 +489,17 @@ public class checkin extends javax.swing.JFrame {
                     
                     PreparedStatement statement = cons.prepareStatement(data);
                     
-                     statement.setString(1, kodebook.getText());
+                    statement.setString(1, kodebook.getText());
                     statement.setString(2, name.getText());
                     statement.setString(3, alamat.getText());
                     statement.setString(4, nohp.getText());
                     statement.setString(5, tipekamar.getText());
                     statement.setString(6, nokamar);
                     statement.setString(7, lamainap.getText());
-                    statement.setString(8, harga.getText());
-                    statement.setString(9, String.valueOf(pembayaran));
-                    statement.setString(10, String.valueOf(kembalian));
+                    statement.setString(8, tglcheck.getText());
+                    statement.setString(9, harga.getText());
+                    statement.setString(10, String.valueOf(pembayaran));
+                    statement.setString(11, String.valueOf(kembalian));
                     
                     statement.executeUpdate();
                     home home = new home();
@@ -511,16 +534,17 @@ public class checkin extends javax.swing.JFrame {
                     
                     PreparedStatement statement = cons.prepareStatement(data);
                     
-                     statement.setString(1, kodebook.getText());
+                    statement.setString(1, kodebook.getText());
                     statement.setString(2, name.getText());
                     statement.setString(3, alamat.getText());
                     statement.setString(4, nohp.getText());
                     statement.setString(5, tipekamar.getText());
                     statement.setString(6, nokamar);
                     statement.setString(7, lamainap.getText());
-                    statement.setString(8, harga.getText());
-                    statement.setString(9, String.valueOf(pembayaran));
-                    statement.setString(10, String.valueOf(kembalian));
+                    statement.setString(8, tglcheck.getText());
+                    statement.setString(9, harga.getText());
+                    statement.setString(10, String.valueOf(pembayaran));
+                    statement.setString(11, String.valueOf(kembalian));
                     
                     statement.executeUpdate();
                     home home = new home();
@@ -538,7 +562,7 @@ public class checkin extends javax.swing.JFrame {
          }
             
             catch (Exception E){
-                JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
+                JOptionPane.showMessageDialog(null, "Mohon Maaf! Kode Booking Yang Dimasukkan Sudah Pernah Dilakukan Check In!");
             }
           }
         }
@@ -556,6 +580,10 @@ public class checkin extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void tipekamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipekamarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipekamarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -604,6 +632,7 @@ public class checkin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -616,6 +645,7 @@ public class checkin extends javax.swing.JFrame {
     private javax.swing.JTextField lamainap;
     private javax.swing.JTextField name;
     private javax.swing.JTextField nohp;
+    private javax.swing.JTextField tglcheck;
     private javax.swing.JTextField tipekamar;
     private javax.swing.JLabel warning;
     // End of variables declaration//GEN-END:variables
