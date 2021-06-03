@@ -4,6 +4,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 public class checkout extends javax.swing.JFrame {
@@ -55,7 +58,7 @@ public class checkout extends javax.swing.JFrame {
         nohp = new javax.swing.JTextField();
         tipekamar = new javax.swing.JTextField();
         tglcheckin = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        tglcheckout = new com.toedter.calendar.JDateChooser();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -175,7 +178,7 @@ public class checkout extends javax.swing.JFrame {
                     .addComponent(nohp)
                     .addComponent(tipekamar)
                     .addComponent(tglcheckin)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tglcheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -238,7 +241,7 @@ public class checkout extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tglcheckout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -320,7 +323,11 @@ public class checkout extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       
+        Date day = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = tglcheckout.getDate();
+        String tanggal = DateFormat.getDateInstance().format(date);
+        
         if(nama.getText().trim().isEmpty() && alamat.getText().trim().isEmpty() && nohp.getText().trim().isEmpty() && tipekamar.getText().trim().isEmpty() && tglcheckin.getText().trim().isEmpty()){
             search2.setText("Data Tidak Ditemukan! Mohon Masukkan Kode Booking Yang Sesuai!");
             value = -1;
@@ -336,12 +343,28 @@ public class checkout extends javax.swing.JFrame {
         if (decision == JOptionPane.YES_OPTION){
             
             try{
-                String data = "insert into checkin values (?,?,?,?,?,?,?,?,?);";
+                String data = "insert into checkout values (?,?,?,?,?,?,?,?);";
+                PreparedStatement statement = cons.prepareStatement(data);
                 
+                statement.setString(1, kodebook.getText());
+                statement.setString(2, nama.getText());
+                statement.setString(3, alamat.getText());
+                statement.setString(4, nohp.getText());
+                statement.setString(5, tipekamar.getText());
+                statement.setString(6, nokamar.getText());
+                statement.setString(7, tglcheckin.getText());
+                statement.setString(8, tanggal);
+                
+                statement.executeUpdate();
+                
+                JOptionPane.showMessageDialog(null, "Selamat! Anda berhasil CHECKOUT! \nTerima Kasih Sudah Menginap Di Hotel Semua Bahagia!");
+                home home = new home();
+                home.setVisible(true);
+                this.dispose();
                }
             
             catch(Exception E){
-                
+                 JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
             }
           }
         
@@ -388,7 +411,6 @@ public class checkout extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -405,6 +427,7 @@ public class checkout extends javax.swing.JFrame {
     private javax.swing.JLabel search;
     private javax.swing.JLabel search2;
     private javax.swing.JTextField tglcheckin;
+    private com.toedter.calendar.JDateChooser tglcheckout;
     private javax.swing.JTextField tipekamar;
     // End of variables declaration//GEN-END:variables
 }
