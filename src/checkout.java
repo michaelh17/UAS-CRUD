@@ -1,5 +1,6 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Calendar;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -316,7 +318,17 @@ public class checkout extends javax.swing.JFrame {
                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
                Date datee = new Date(tgl);
                
+               Calendar clr = Calendar.getInstance();
+               clr.setTime(datee);
                
+               clr.add(Calendar.DATE, Integer.valueOf(lamainap.getText()));
+               
+               Date hasil = clr.getTime();
+               
+               
+               String hasilcheckout = sdf.format(hasil);
+               
+               tglcheckout.setText(hasilcheckout);
                
            }
            
@@ -350,10 +362,7 @@ public class checkout extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Date day = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = tglcheckout.getDate();
-        String tanggal = DateFormat.getDateInstance().format(date);
+      
         
         if(nama.getText().trim().isEmpty() && alamat.getText().trim().isEmpty() && nohp.getText().trim().isEmpty() && tipekamar.getText().trim().isEmpty() && tglcheckin.getText().trim().isEmpty()){
             search2.setText("Data Tidak Ditemukan! Mohon Masukkan Kode Booking Yang Sesuai!");
@@ -370,7 +379,7 @@ public class checkout extends javax.swing.JFrame {
         if (decision == JOptionPane.YES_OPTION){
             
             try{
-                String data = "insert into checkout values (?,?,?,?,?,?,?,?);";
+                String data = "insert into checkout values (?,?,?,?,?,?,?,?,?);";
                 PreparedStatement statement = cons.prepareStatement(data);
                 
                 statement.setString(1, kodebook.getText());
@@ -379,8 +388,9 @@ public class checkout extends javax.swing.JFrame {
                 statement.setString(4, nohp.getText());
                 statement.setString(5, tipekamar.getText());
                 statement.setString(6, nokamar.getText());
-                statement.setString(7, tglcheckin.getText());
-                statement.setString(8, tanggal);
+                statement.setString(7, lamainap.getText());
+                statement.setString(8, tglcheckin.getText());
+                statement.setString(9, tglcheckout.getText());
                 
                 statement.executeUpdate();
                 
