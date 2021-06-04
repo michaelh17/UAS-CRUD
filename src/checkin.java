@@ -328,6 +328,7 @@ public class checkin extends javax.swing.JFrame {
                    String price = result.getString("Harga");
                    harga.setText(price);
 
+  
            }
            
            else{
@@ -337,6 +338,7 @@ public class checkin extends javax.swing.JFrame {
                alamat.setText(null);
                nohp.setText(null);
                tipekamar.setText(null);
+               tglcheck.setText(null);
                lamainap.setText(null);
                harga.setText(null);
                

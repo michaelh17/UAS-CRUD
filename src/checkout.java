@@ -1,4 +1,7 @@
 import java.util.Random;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Calendar;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -63,6 +66,7 @@ public class checkout extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         search2 = new javax.swing.JLabel();
+        testt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,6 +132,8 @@ public class checkout extends javax.swing.JFrame {
 
         search2.setForeground(new java.awt.Color(255, 0, 51));
 
+        testt.setText("jTextField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -192,7 +198,10 @@ public class checkout extends javax.swing.JFrame {
                         .addGap(68, 68, 68))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(search2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37))))
+                        .addGap(37, 37, 37))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(testt, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +251,9 @@ public class checkout extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(tglcheckout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                .addGap(18, 18, 18)
+                .addComponent(testt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -290,7 +301,20 @@ public class checkout extends javax.swing.JFrame {
                String tgl = result.getString("tglCheckin");
                tglcheckin.setText(tgl);
 
-
+               SimpleDateFormat test = new SimpleDateFormat("dd/MM/yyyy");
+               test.parse(tgl);
+               JOptionPane.showMessageDialog(null, "hi");
+               //Calendar clr = Calendar.getInstance();
+              // clr.setTime(test);
+               
+              // clr.add(Calendar.DATE, 4);
+               
+               //Date cdpo = clr.getTime();
+               
+               
+               //String tanggal2 = DateFormat.getDateInstance().format(cdpo);
+              // testt.setText(tanggal2);
+              
            }
            
            else{
@@ -426,6 +450,7 @@ public class checkout extends javax.swing.JFrame {
     private javax.swing.JTextField nokamar;
     private javax.swing.JLabel search;
     private javax.swing.JLabel search2;
+    private javax.swing.JTextField testt;
     private javax.swing.JTextField tglcheckin;
     private com.toedter.calendar.JDateChooser tglcheckout;
     private javax.swing.JTextField tipekamar;
