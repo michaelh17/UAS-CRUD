@@ -106,6 +106,11 @@ public class home extends javax.swing.JFrame {
         });
 
         jButton6.setText("Database (Only Admin)");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         welcomemsg.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         welcomemsg.setText("Welcome , !");
@@ -188,6 +193,11 @@ public class home extends javax.swing.JFrame {
        checkout.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       verify verify = new verify();
+       verify.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
