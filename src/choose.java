@@ -163,6 +163,81 @@ public class choose extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
         }
       }
+      
+      else if(choose.equals("Checkin")){
+          tb.addColumn("Kode Booking");
+          tb.addColumn("Nama");
+          tb.addColumn("Alamat");
+          tb.addColumn("No HP");
+          tb.addColumn("Tipe Kamar");
+          tb.addColumn("Nomor Kamar");
+          tb.addColumn("Lama Inap");
+          tb.addColumn("Tgl Check In");
+          tb.addColumn("Harga");
+          tb.addColumn("Pembayaran");
+          tabel.setModel(tb);
+          
+        try{
+       String db = "select * from " +choose;
+       ResultSet result = stat.executeQuery(db);
+            
+       while (result.next()){
+           tb.addRow(new Object[]{
+               result.getString("KodeBooking"),
+               result.getString("Nama"),
+               result.getString("Alamat"),
+               result.getString("No HP"),
+               result.getString("TipeKamar"),
+               result.getString("NoKamar"),
+               result.getString("LamaInap"),
+               result.getString("tglCheckin"),
+               result.getString("Harga"),
+               result.getString("Pembayaran"),
+           });
+       }
+        }
+        
+        catch(Exception E){
+             JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
+        }
+      }
+      
+      
+       else if(choose.equals("Checkout")){
+          tb.addColumn("Kode Booking");
+          tb.addColumn("Nama");
+          tb.addColumn("Alamat");
+          tb.addColumn("No HP");
+          tb.addColumn("Tipe Kamar");
+          tb.addColumn("Nomor Kamar");
+          tb.addColumn("Lama Inap");
+          tb.addColumn("Tgl Check In");
+          tb.addColumn("Tgl Check Out");
+          tabel.setModel(tb);
+          
+        try{
+       String db = "select * from " +choose;
+       ResultSet result = stat.executeQuery(db);
+            
+       while (result.next()){
+           tb.addRow(new Object[]{
+               result.getString("KodeBooking"),
+               result.getString("Nama"),
+               result.getString("Alamat"),
+               result.getString("NoHP"),
+               result.getString("TipeKamar"),
+               result.getString("NoKamar"),
+               result.getString("LamaInap"),
+               result.getString("TglCheckin"),
+               result.getString("TglCheckout"),
+           });
+       }
+        }
+        
+        catch(Exception E){
+             JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
+        }
+      }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
