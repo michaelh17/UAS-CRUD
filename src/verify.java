@@ -163,6 +163,7 @@ public class verify extends javax.swing.JFrame {
                home home = new home();
                choose choose = new choose();
                choose.setVisible(true);
+               this.dispose();
                
            }
            
