@@ -258,17 +258,16 @@ public class choose extends javax.swing.JFrame {
         if(choose.equals("Login")){
            try{
            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportlogin.jasper"), null, cons);
-           JasperViewer.viewReport(jp, false);
+        JasperViewer.viewReport(jp, false);
         
            }
            
            catch (Exception E){
                JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
-           }
-           
-       }
+          }
+        }
         
-         if(choose.equals("Reservation")){
+           else if(choose.equals("Reservation")){
            try{
            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportreservation.jasper"), null, cons);
            JasperViewer.viewReport(jp, false);
@@ -281,7 +280,7 @@ public class choose extends javax.swing.JFrame {
            
        }
          
-          if(choose.equals("Checkin")){
+        else if(choose.equals("Checkin")){
            try{
            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportcheckin.jasper"), null, cons);
            JasperViewer.viewReport(jp, false);
@@ -294,7 +293,7 @@ public class choose extends javax.swing.JFrame {
            
        }
           
-           if(choose.equals("Checkout")){
+        else if(choose.equals("Checkout")){
            try{
            JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportcheckout.jasper"), null, cons);
            JasperViewer.viewReport(jp, false);

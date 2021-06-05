@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fb09e0ef-09a0-46f7-8161-5fddb5481647">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -42,35 +45,27 @@
 	</background>
 	<title>
 		<band height="136" splitType="Stretch">
-			<image>
-				<reportElement uuid="255825a8-da9f-4991-8df9-06322fc31f13" x="0" y="0" width="164" height="126"/>
-				<imageExpression><![CDATA["coffee.jpg"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement uuid="be02424a-d210-482f-a418-ca18092c3d1c" style="Title" x="270" y="0" width="263" height="62"/>
+				<reportElement uuid="be02424a-d210-482f-a418-ca18092c3d1c" style="Title" x="303" y="0" width="191" height="62"/>
 				<textElement verticalAlignment="Middle">
 					<font pdfFontName="Times-Roman"/>
 				</textElement>
-				<text><![CDATA[Coffee Title]]></text>
+				<text><![CDATA[HOTEL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="c0f6556d-cc56-4483-9c8e-51a94cc1b2b9" style="SubTitle" x="303" y="62" width="196" height="22"/>
+				<reportElement uuid="c0f6556d-cc56-4483-9c8e-51a94cc1b2b9" style="SubTitle" x="325" y="62" width="150" height="22"/>
 				<textElement>
 					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
 				</textElement>
-				<text><![CDATA[Coffee SubTitle]]></text>
+				<text><![CDATA[SERBA BAHAGIA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="61236504-6a68-46d9-a858-cc8a533f8406" x="172" y="94" width="383" height="42"/>
+				<reportElement uuid="61236504-6a68-46d9-a858-cc8a533f8406" x="419" y="94" width="383" height="42"/>
 				<textElement textAlignment="Right">
-					<font size="10"/>
+					<font fontName="Monospaced" size="15"/>
 				</textElement>
-				<text><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor purus gravida arcu aliquam mattis. Donec et nulla libero, ut varius massa. Nulla sed turpis elit. Etiam aliquet mauris a ligula hendrerit in auctor leo lobortis.]]></text>
+				<text><![CDATA[TABEL : RESERVATION]]></text>
 			</staticText>
-			<image>
-				<reportElement uuid="bcad56d6-45e7-45f0-a890-3254a22ee4cb" x="633" y="-73" width="219" height="209"/>
-				<imageExpression><![CDATA["coffee_stain.png"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>
