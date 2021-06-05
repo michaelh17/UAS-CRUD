@@ -257,8 +257,47 @@ public class choose extends javax.swing.JFrame {
        String choose = pilihan.getSelectedItem().toString();
         if(choose.equals("Login")){
            try{
-        JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportlogin.jasper"), null, cons);
-        JasperViewer.viewReport(jp, false);
+           JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportlogin.jasper"), null, cons);
+           JasperViewer.viewReport(jp, false);
+        
+           }
+           
+           catch (Exception E){
+               JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
+           }
+           
+       }
+        
+         if(choose.equals("Reservation")){
+           try{
+           JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportreservation.jasper"), null, cons);
+           JasperViewer.viewReport(jp, false);
+        
+           }
+           
+           catch (Exception E){
+               JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
+           }
+           
+       }
+         
+          if(choose.equals("Checkin")){
+           try{
+           JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportcheckin.jasper"), null, cons);
+           JasperViewer.viewReport(jp, false);
+        
+           }
+           
+           catch (Exception E){
+               JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
+           }
+           
+       }
+          
+           if(choose.equals("Checkout")){
+           try{
+           JasperPrint jp = JasperFillManager.fillReport(getClass().getResourceAsStream("reportcheckout.jasper"), null, cons);
+           JasperViewer.viewReport(jp, false);
         
            }
            
