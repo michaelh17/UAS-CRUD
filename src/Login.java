@@ -4,11 +4,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-//import javax.swing.table.DefaultTableModel;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
-//import java.sql.SQLException;
-
 public class Login extends javax.swing.JFrame {
     
     public home home;
