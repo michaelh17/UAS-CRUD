@@ -287,7 +287,7 @@ public class checkout extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       try{
-          SimpleDateFormat test = new SimpleDateFormat("dd/MM/yyyy");
+          
            String db = "select *from checkin where KodeBooking = '" +kodebook.getText() + "'and NoKamar = '" +nokamar.getText() + "'";
            
            ResultSet result = stat.executeQuery(db);
