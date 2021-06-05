@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="da3ac1fb-d938-4234-b6c7-ebdd869a0226">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[select * from checkout]]>
+	</queryString>
+	<field name="KodeBooking" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NoHP" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TipeKamar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NoKamar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="LamaInap" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TglCheckin" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TglCheckout" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="b5eb726e-d2fd-4873-98cb-81ed56a58b1e" style="Title" x="326" y="0" width="182" height="62"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[HOTEL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="134502a6-6d03-4072-bfef-c2c6ef00840a" style="SubTitle" x="344" y="62" width="152" height="22"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[SERBA BAHAGIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c26f9fc2-36b0-4715-b47d-ed98f11ee81f" x="419" y="94" width="383" height="42"/>
+				<textElement textAlignment="Right">
+					<font fontName="Monospaced" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TABEL : CHECKOUT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="088df42f-1905-4077-b922-ce49baa4d902" positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="34244c64-eff7-4adf-a874-cad131dd9bdc" style="Column header" x="0" y="0" width="89" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[KodeBooking]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e83d56ba-fd94-4aa1-8b75-d976af43d0c7" style="Column header" x="89" y="0" width="89" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9548d7c1-0a57-4017-86df-1e8020b31559" style="Column header" x="178" y="0" width="89" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6d37110-9226-4624-b6da-601b36ce569a" style="Column header" x="267" y="0" width="89" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[NoHP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bb53d3a0-9d0a-48c8-97a5-8e26b143ed0a" style="Column header" x="356" y="0" width="89" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[TipeKamar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dde001d6-21fc-4840-80b6-c83515980e89" style="Column header" x="445" y="0" width="89" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[NoKamar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9be7d6e4-a6a8-478e-a409-6402266868f1" style="Column header" x="534" y="0" width="89" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[LamaInap]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2aafc9e0-bd59-4e9b-a675-ee8c8db4b039" style="Column header" x="623" y="0" width="89" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[TglCheckin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="88a79ade-94b9-49bf-b760-172c75a4bfb2" style="Column header" x="712" y="0" width="89" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[TglCheckout]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement uuid="4d6c9c7c-94df-4894-bedf-d52f6aeac44b" style="Row" mode="Opaque" x="0" y="0" width="802" height="15"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="b24829e1-aff6-44d0-a26b-556dcb322c72" style="Detail" x="0" y="0" width="89" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{KodeBooking}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="76f3df95-bc08-4fea-b002-37bf71ef8fab" style="Detail" x="89" y="0" width="89" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{Nama}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="65430b3f-2a25-42ee-9411-ca16d952499d" style="Detail" x="178" y="0" width="89" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{Alamat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="8a030527-8a9f-4299-8cc5-ab18b0f053a4" style="Detail" x="267" y="0" width="89" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{NoHP}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="a712f933-996c-40bb-a4a4-193d9387c3aa" style="Detail" x="356" y="0" width="89" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{TipeKamar}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="27d2b51e-9508-4997-a15e-e82717541447" style="Detail" x="445" y="0" width="89" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{NoKamar}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="c3643062-ec6a-4dec-908a-f3b948f330a5" style="Detail" x="534" y="0" width="89" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{LamaInap}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="6d7a3db4-b10b-4bdd-ad5e-2971add941f8" style="Detail" x="623" y="0" width="89" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{TglCheckin}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="92a7e30e-7823-4371-9475-a90c57e7be33" style="Detail" x="712" y="0" width="89" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{TglCheckout}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement uuid="43a46ada-deb4-4b7e-b1de-584f7240c986" positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="c966600b-58b6-4adc-8858-7340b062caf9" mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="9a20e89c-cd79-4c82-8140-3d6c2dfeedbf" style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="16d36e99-1e84-4b43-b109-a7124eea2b0d" style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="d336940e-b2d8-43e6-8d9c-66a09b1d0b79" style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
