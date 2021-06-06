@@ -391,10 +391,49 @@ public class checkout extends javax.swing.JFrame {
                 statement.executeUpdate();
                 
                 JOptionPane.showMessageDialog(null, "Selamat! Anda berhasil CHECKOUT! \nTerima Kasih Sudah Menginap Di Hotel Semua Bahagia!");
+                
+                if (tipekamar.getText().equals("Standard")){
+               String add = "insert into standard values (?,?)";
+               String lt = "1";
+               PreparedStatement stat = cons.prepareStatement(add);
+               stat.setString(1, nokamar.getText());
+               stat.setString(2, lt);
+               stat.executeUpdate();
+               }
+                
+               else if (tipekamar.getText().equals("Family")){
+               String add = "insert into Family values (?,?)";
+               String lt = "2";
+               PreparedStatement stat = cons.prepareStatement(add);
+               stat.setString(1, nokamar.getText());
+               stat.setString(2, lt);
+               stat.executeUpdate();
+               }
+                
+                else if (tipekamar.getText().equals("Deluxe")){
+               String add = "insert into Deluxe values (?,?)";
+               String lt = "3";
+               PreparedStatement stat = cons.prepareStatement(add);
+               stat.setString(1, nokamar.getText());
+               stat.setString(2, lt);
+               stat.executeUpdate();
+               }
+                
+                 else if (tipekamar.getText().equals("Suite")){
+               String add = "insert into Family values (?,?)";
+               String lt = "4";
+               PreparedStatement stat = cons.prepareStatement(add);
+               stat.setString(1, nokamar.getText());
+               stat.setString(2, lt);
+               stat.executeUpdate();
+               }
+                
                 home home = new home();
                 home.setVisible(true);
                 this.dispose();
                }
+            
+           
             
             catch(Exception E){
                  JOptionPane.showMessageDialog(null, "Terjadi Sebuah Kesalahan!");
